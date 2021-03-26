@@ -29,7 +29,7 @@ compile your answers and summarize your analysis into a report that can be share
 
 Databases need to be structured properly to enable efficient and effective querying and analysis of data. Build normalized, consistent, and performant relational data models. Use SQL Database Definition Language (DDL) to create the data schemas designed in Postgres and apply SQL Database Manipulation Language (DML) to migrate data from a denormalized schema to a normalized one. Understand the tradeoffs between relational databases and their non-relational counterparts, and justify which one is best for different scenarios. With a radical shift of paradigms, learn about MongoDB and Redis to get anunderstanding of the differences in behaviors and requirements for non-relational databases.
 
-### Course Project: Uddidit, A Social News Aggregator
+### Course Project: [Uddidit, A Social News Aggregator] (https://github.com/riched158/SQL-nano/tree/main/proj2) &nbsp;
 Many of today’s most popular web applications have supporting database structures that allow them to customize and aggregate information within seconds. In this project, you will build the supporting data structures for Uddidit, a social media news aggregator site. First, you’ll investigate the provided data model for potential errors such as lack of normalization, consistency rules, and proper indexing. Then, you will create a new, normalized database using DDL based on the denormalized one that is provided. Lastly,
 you will write DML queries to migrate the data from the denormalized schema to their normalized schema.
 

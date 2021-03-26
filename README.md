@@ -4,7 +4,7 @@
 This repository contains some of my work from the SQL Udacity Nanodegree.
 
 
-![Certificate](Udacity-SQL.svg)
+![Certificate](certif1.jpg)
 
 ## Course 1
 

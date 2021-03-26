@@ -1,7 +1,7 @@
 
 # [SQL Udacity Nanodegree](https://www.udacity.com/) &nbsp;
 
-This repository contains some of my work from the SQL Udacity Nanodegree.
+This repository contains some my work from the SQL Udacity Nanodegree.
 
 
 ![Certificate](certif1.jpg)

@@ -8,6 +8,7 @@ CREATE TABLE "users"
   CONSTRAINT "unique_usernames" UNIQUE ("username"),
   CONSTRAINT "empty_username" CHECK (LENGTH(TRIM("username")) > 0)
 );
+CREATE INDEX "username_index" ON "users" ("username");
 
 -- b. Allow registered users to create new topics:
 CREATE TABLE "topics"
@@ -18,6 +19,8 @@ CREATE TABLE "topics"
   CONSTRAINT "unique_topics" UNIQUE ("name"),
   CONSTRAINT "empty_topic_name" CHECK (LENGTH(TRIM("name")) > 0)
 );
+CREATE UNIQUE INDEX "unique_topics" ON "topics" ("name");
+CREATE INDEX ON "topics" ON "topics" (LOWER("name") VARCHAR_PATTERN_OPS);
 
 -- c. Allow registered users to create new posts on existing topics:
 CREATE TABLE "posts" 
@@ -29,11 +32,15 @@ CREATE TABLE "posts"
   text_content TEXT,
   topic_id INTEGER REFERENCES "topics" ON DELETE CASCADE,
   user_id INTEGER REFERENCES "users" ON DELETE SET NULL,
-  CONSTRAINT "empty_title" CHECK (LENGTH(TRIM("title")) > 0),
-  CONSTRAINT "url_or_text" CHECK (
-    (LENGTH(TRIM("url")) > 0 AND LENGTH(TRIM("text_content")) = 0) OR
-    (LENGTH(TRIM("url")) = 0 AND LENGTH(TRIM("text_content")) > 0)
-  )
+
+  CONSTRAINT "url_or_text" CHECK (("url" IS NOT NULL AND "text_content" IS NULL)
+  OR ("url" IS NULL AND "text_content" IS NOT NULL)),
+  CONSTRAINT "fk_topic_id" FOREIGN KEY ("topic_id") REFERENCES "topics"
+  ("id") ON DELETE CASCADE,
+  CONSTRAINT "fk_user_id" FOREIGN KEY ("user_id") REFERENCES "users"
+  ("id") ON DELETE SET NULL,
+  CONSTRAINT "empty_title" CHECK (LENGTH(TRIM("title")) > 0)
+
 );
 CREATE INDEX ON "posts" ("url" VARCHAR_PATTERN_OPS);
 
@@ -42,9 +49,15 @@ CREATE TABLE "comments"
 (
   id SERIAL PRIMARY KEY,
   text_content TEXT NOT NULL,
+  created TIMESTAMP,
   post_id INTEGER REFERENCES "posts" ON DELETE CASCADE,
   user_id INTEGER REFERENCES "users" ON DELETE SET NULL,
   parent_comment_id INTEGER REFERENCES "comments" ON DELETE CASCADE
+
+  CONSTRAINT "fk_post_id" FOREIGN KEY ("post_id") REFERENCES "posts"
+  ("id") ON DELETE CASCADE,
+  CONSTRAINT "fk_user_id" FOREIGN KEY ("user_id") REFERENCES "users"
+  ("id") ON DELETE SET NULL,
   CONSTRAINT "empty_text_content" CHECK(LENGTH(TRIM("text_content")) > 0)
 );
 
@@ -57,6 +70,10 @@ CREATE TABLE "votes"
   vote SMALLINT NOT NULL,
   CONSTRAINT "vote_plus_or_min" CHECK("vote" IN (1,-1)),
   CONSTRAINT "one_vote_per_user" UNIQUE (user_id, post_id)
+  CONSTRAINT "fk_user_id" FOREIGN KEY ("user_id") REFERENCES "users"
+  ("id") ON DELETE SET NULL,
+  CONSTRAINT "fk_post_id" FOREIGN KEY ("post_id") REFERENCES "posts"
+  ("id") ON DELETE CASCADE
 );
 
 -- 3

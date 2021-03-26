@@ -1,15 +1,7 @@
 
 # [SQL Udacity Nanodegree](https://www.udacity.com/) &nbsp;
 
-This repository contains some of my work in the fields of Machine Learning and Data Science.  The notebooks are experiments, courses, kaggle entries, hacks and code ideas from various sources.  The work was done in python utilising numpy, pandas and scikit-learn.  Some references are:
-
-[Udacity](https://eu.udacity.com/) &nbsp; 
-[Coursera](https://www.coursera.org) &nbsp; 
-[Kaggle](https://www.kaggle.com) &nbsp;
-[DataCamp](https://www.datacamp.com/) &nbsp;
-[Sebastian Raschka](https://sebastianraschka.com/books.html) &nbsp; 
-[Jason Brownlee](https://machinelearningmastery.com) &nbsp; 
-[Open Data Science](https://mlcourse.ai) &nbsp;
+This repository contains some of my work from the SQL Udacity Nanodegree.    
 
 ## Course 1
 

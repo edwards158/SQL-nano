@@ -1,6 +1,6 @@
 # SQL_nanodegree
 
-# SQL Udacity Nanodegree
+# [SQL Udacity Nanodegree](https://www.udacity.com/) &nbsp
 
 This repository contains some of my work in the fields of Machine Learning and Data Science.  The notebooks are experiments, courses, kaggle entries, hacks and code ideas from various sources.  The work was done in python utilising numpy, pandas and scikit-learn.  Some references are:
 
@@ -24,7 +24,7 @@ SQL is most commonly used to manipulate and analyze data to inform decision maki
 compile your answers and summarize your analysis into a report that can be shared to a leadership team.
 
 
-##Course 2
+## Course 2
 
 ### Management of Relational & Non-Relational Databases
 

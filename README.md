@@ -1,5 +1,5 @@
 
-# [SQL Udacity Nanodegree](https://www.udacity.com/) &nbsp;
+# [SQL Udacity Nanodegree](https://www.udacity.com/school-of-data-science) &nbsp;
 
 This repository contains some my work from the SQL Udacity Nanodegree.
 
